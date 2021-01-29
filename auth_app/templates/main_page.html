@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+
+<h1>Главная страница</h1>
+
+<div>
+    <button>
+        <a href="{% url 'registration' %}">Регистрация</a>
+    </button>
+</div>
+
+<br>
+
+<div>
+    <button>
+        <a href="{% url 'autharization' %}">Авторизация</a>
+    </button>
+</div>
+
+<br>
+
+<div>
+    {% if user.is_authenticated %}
+    Ваш логин: {{ user }}
+    <button>
+        <a href="{% url 'cabinet' %}">Войти в личный кабинет</a>
+    </button>
+
+    {% else %}
+    Авторизуйтесь
+    {% endif %}
+
+    <br>
+    <br>
+
+    <button>
+        <a href="{% url 'logout' %}">Разлогиниться</a>
+    </button>
+</div>
+
+
+</body>
+</html>
