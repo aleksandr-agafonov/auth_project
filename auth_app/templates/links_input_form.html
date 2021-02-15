@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка ссылок</title>
+</head>
+<body>
+<h1>Проверка ссылок</h1>
+
+<p>Введите ссылки для проверки.<br>Каждая ссылка с новой строки</p>
+<form action="{% url 'links_sent' %}">
+    {% csrf_token %}
+    <textarea rows="10" cols="60" name="links_input"></textarea>
+    <br>
+    <input type="submit" value="Отправить на проверку">
+    </form>
+
+<br>
+<button>
+    <a href="{% url 'cabinet' %}">В кабинет</a>
+</button>
+
+</body>
+</html>

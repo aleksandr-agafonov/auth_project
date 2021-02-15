@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка ссылок</title>
+</head>
+<body>
+<h1>Проверка ссылок</h1>
+
+{% if not error_message %}
+
+<p>
+    Ссылки отправлены на проверку.<br>
+    Результаты проверки будут доступны через некоторое время в личном кабинете
+    {{ success_message }}
+</p>
+{% else %}
+
+<p>
+    {{ error_message }}
+</p>
+{% endif %}
+
+<button>
+    <a href="{% url 'cabinet' %}">В кабинет</a>
+</button>
+
+<button>
+    <a href="{% url 'links_input_form' %}">Попробовать еще раз</a>
+</button>
+
+
+</body>
+</html>

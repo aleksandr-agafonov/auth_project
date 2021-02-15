@@ -7,10 +7,35 @@
 <body>
 <h1>Личный кабинет</h1>
 
-<h2>Создать подключение</h2>
+<h3>Ваш ID: {{user.id }}</h3>
+
+
 <button>
-    <a href="{% url 'create_calltouch' %}">Создать подключение CallTouch</a>
+    <a href="{% url 'main_page' %}">Вернуться на главную</a>
 </button>
+
+<p>
+    <h3>Создать подключение</h3>
+    <button>
+        <a href="{% url 'create_calltouch' %}">Создать подключение CallTouch</a>
+    </button>
+
+    <button>
+        <a href="{% url 'my_connections' %}">Мои коннекторы</a>
+    </button>
+</p>
+
+<p>
+    <h3>Проверка ссылок</h3>
+    <button>
+        <a href="{% url 'links_input_form' %}">Проверить ссылки</a>
+    </button>
+
+    <button>
+        <a href="{% url 'links_result' %}">Результаты проверок</a>
+    </button>
+</p>
+
 
 </body>
 </html>

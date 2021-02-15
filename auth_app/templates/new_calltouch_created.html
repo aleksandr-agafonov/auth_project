@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои коннекторы</title>
+</head>
+<body>
+
+<h1>Мои коннекторы</h1>
+
+Статус: {{ status_message }} <br>
+
+{% if status_code == 200 %}
+
+Нода: {{ node }} <br>
+ID кабинет: {{ cabinet_id }} <br>
+Токен: {{ token }} <br>
+Дата начала: {{ start_date }} <br>
+Дней перезаписывать: {{ ct_days_back }} <br>
+ID пользователя: {{ user.id }}
+
+{% endif %}
+
+<p>
+<button>
+    <a href="{% url 'cabinet' %}">Вернутся в кабинет</a>
+</button>
+    <button>
+        <a href="{% url 'my_connections' %}">Мои коннекторы</a>
+    </button>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои коннекторы</title>
+</head>
+<body>
+<h1>Мои коннекторы</h1>
+
+{% if  not connectors  %}
+
+<p>У вас не коннекторов</p>
+
+{% else %}
+<table>
+    <tr>
+        <th>Название</th>
+        <th>ID кабинета</th>
+        <th>Создан</th>
+        <th>Дата начала выгрузки</th>
+        <th>Дней перезаписывалет</th>
+        <th>ID пользователя</th>
+    </tr>
+    {% for i in connectors %}
+    <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.ct_node }}</td>
+        <td>{{ i.ct_created_date }}</td>
+        <td>{{ i.ct_start_date }}</td>
+        <td>{{ i.ct_days_back }}</td>
+        <td>{{ i.ct_user_id }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+    <br>
+    <button>
+        <a href="{% url 'cabinet' %}">В кабинет</a>
+    </button>
+
+</body>
+</html>

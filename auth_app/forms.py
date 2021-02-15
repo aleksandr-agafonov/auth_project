@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.models import User
-from datetime import datetime, timedelta
 
 
 class LogginForm(forms.Form):
@@ -21,10 +20,3 @@ class UserRegistrationForm(forms.ModelForm):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('Пароли не совпадают')
         return cd['password2']
-
-
-class CallTouchForm(forms.Form):
-    node = forms.CharField()
-    cabinet_id = forms.CharField()
-    calltouch_token = forms.CharField()
-    start_date = forms.CharField(empty_value=(datetime.now() - timedelta(days=1)))

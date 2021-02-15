@@ -7,9 +7,34 @@
 <body>
 <h1>Создать подключение Calltouch</h1>
 
-<form>
+<form action="{% url 'new_calltouch_created' %}" method="post">
     {% csrf_token %}
+
+    <p>Введите ноду</p>
+    <input type="text" size="50" name="ct_node">
+
+    <p>Введите id кабинет</p>
+    <input type="text" size="50" name="ct_cabinet_id">
+
+    <p>Введите токен</p>
+    <input type="text" size="50" name="ct_token">
+
+    <p>Введите дату начала выгрузки</p>
+    <input type="text" size="50" name="ct_start_date">
+
+    <p>Дней перезаписывать</p>
+    <input type="text" size="50" name="ct_days_back">
+
+    <input name="user_id" value="{{ user.id }}" hidden>
+
+    <p>
+    <input type="submit" value="Создать CallTouch">
+    </p>
 </form>
+
+<button>
+    <a href="{% url 'cabinet' %}">В кабинет</a>
+</button>
 
 </body>
 </html>

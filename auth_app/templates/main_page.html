@@ -26,21 +26,22 @@
 
 <div>
     {% if user.is_authenticated %}
-    Ваш логин: {{ user }}
+    Ваш логин: {{ user }} <br>
+    Ваш ID: {{user.id }} <br><br>
     <button>
         <a href="{% url 'cabinet' %}">Войти в личный кабинет</a>
+    </button>
+
+    <br><br>
+
+    <button>
+        <a href="{% url 'logout' %}">Разлогиниться</a>
     </button>
 
     {% else %}
     Авторизуйтесь
     {% endif %}
 
-    <br>
-    <br>
-
-    <button>
-        <a href="{% url 'logout' %}">Разлогиниться</a>
-    </button>
 </div>
 
 

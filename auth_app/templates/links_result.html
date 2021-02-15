@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат проверки ссылок</title>
+</head>
+<body>
+<h1>Результат проверки ссылок</h1>
+
+{% if not check_links_result %}
+
+нет результата
+
+{% else %}
+
+<table>
+    <tr>
+        <th>Дата загрузки ссылки</th>
+        <th>Исходная ссылка</th>
+        <th>Ответ сервера исходной ссылки</th>
+        <th>Редиректная ссылка (если есть)</th>
+        <th>Ответ сервера редиректной ссылки</th>
+        <th>Путь редиректов (если есть)</th>
+        <th>Дата проверки</th>
+    </tr>
+    {% for i in check_links_result %}
+    <tr>
+        <td>{{ i.upload_date }}</td>
+        <td>{{ i.original_link }}</td>
+        <td>{{ i.original_link_status_code }}</td>
+        <td>{{ i.redirect_link }}</td>
+        <td>{{ i.redirect_link_status_code }}</td>
+        <td>{{ i.history }}</td>
+        <td>{{ i.history_check_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br><br>
+<button>
+    <a href="">Очистить результаты</a>
+</button>
+
+{% endif %}
+
+<br><br>
+<button>
+    <a href="{% url 'cabinet' %}">В кабинет</a>
+</button>
+
+</body>
+</html>
